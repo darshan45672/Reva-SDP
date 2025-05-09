@@ -11,8 +11,8 @@ def index(request):
 
     return render(request, 'index.html', context)
 
-def about(request):
-    return HttpResponse("This is the about page of myapp.")
+def allLists(request):
+    return render(request, 'allLists.html')
 
-def contact(request):
-    return HttpResponse("This is the contact page of myapp.")
+def doneLists(request):
+    return render(request, 'doneLists.html')
