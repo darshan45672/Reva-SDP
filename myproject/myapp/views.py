@@ -5,14 +5,16 @@ from .models import List
 
 # Create your views here.
 def index(request):
-    lists = List.objects.all()
-    return render(request, 'index.html', {'lists': lists})
+    lists = List.objects.all() 
+    print(lists)
+
+    return render(request, 'myapp/index.html', {'lists': lists})
 
 def allLists(request):
-    return render(request, 'allLists.html')
+    return render(request, 'myapp/allLists.html')
 
 def doneLists(request):
-    return render(request, 'doneLists.html')
+    return render(request, 'myapp/doneLists.html')
 
 def addList(request):
     if request.method == 'POST':
@@ -22,11 +24,12 @@ def addList(request):
             return redirect('all-lists')
     else:
         form = ListForm()
-        
-    return render(request, 'addList.html', {'form': form})
+
+    return render(request, 'myapp/addList.html', {'form': form})
 
 def editList(request, id):
     list = get_object_or_404(List, id=id)
+
     if request.method == 'POST':
         form = ListForm(request.POST, instance=list)
         if form.is_valid():
@@ -34,11 +37,11 @@ def editList(request, id):
             return redirect('all-lists')
     else:
         form = ListForm(instance=list)
-    return render(request, 'editList.html', {'form': form, 'list': list})
+    return render(request, 'myapp/editList.html', {'form': form, 'list': list})
 
 def viewList(request, id):
     list = get_object_or_404(List, id=id)
-    return render(request, 'viewList.html', {'list': list})
+    return render(request, 'myapp/viewList.html', {'list': list})
 
 def deleteList(request, id):
     list = get_object_or_404(List, id=id)

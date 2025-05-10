@@ -3,12 +3,12 @@
         <div class="card-body">
             <h5 class="card-title">{{ data.title }}</h5>
             <p class="card-text">{{ data.description }}</p>
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-around">
                 <a href="{% url 'edit-list' data.id %}" class="btn btn-primary">Edit</a>
-                <a href="{% url 'view-list' data.id %}" class="btn btn-dark">view</a>
+                <a href="{% url 'view-list' data.id %}" class="btn btn-dark">View</a>
                 <form action="{% url 'delete-list' data.id %}" method="post">
                     {% csrf_token %}
-                    <button class="btn btn-danger" type="submit">Delete</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </div>
         </div>
