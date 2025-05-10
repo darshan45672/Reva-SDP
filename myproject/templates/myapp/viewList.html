@@ -1,0 +1,24 @@
+{% extends 'layouts/app.html' %}
+
+{% block title %} View List {% endblock %}
+
+{% block content %}
+ <table class="table table table-striped">
+   <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Is Done?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{ list.id }}</th>
+      <td>{{ list.title }}</td>
+      <td>{{ list.description }}</td>
+      <td>{{ list.is_done }}</td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}
