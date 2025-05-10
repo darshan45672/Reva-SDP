@@ -5,27 +5,18 @@
 {% block content %}
 <div class="container">
   <div class="row d-flex justify-content-center">
-    <div class="col-md-6">
-      <h1 class="text-center mt-5">ToDo List</h1>
-      <form id="todo-form" class="mb-3">
-        <div class="input-group">
-          <input type="text" id="todo-input" class="form-control" placeholder="Add a new task" required>
-          <button type="submit" class="btn btn-primary">Add</button>
-        </div>
-      </form>
-      <ul id="todo-list" class="list-group"></ul>
+    <div class="col-md-6 text-center d-flex align-items-baseline mb-4 justify-content-between">
+      <h1 class="mt-5">ToDo List</h1> 
+      <a href="{% url 'add-list' %}" class="btn btn-primary">Add</a>
     </div>
   </div>
 </div>
 
 <div class="container">
   <div class="row">
-    {% include 'components/card.html' %}
-    {% include 'components/card.html' %}
-    {% include 'components/card.html' %}
-    {% include 'components/card.html' %}
-    {% include 'components/card.html' %}
-    {% include 'components/card.html' %}
+    {% for list in lists %}
+    {% include 'components/card.html' with data=list %}
+    {% endfor %}
   </div>
 </div>
 {% endblock %}
